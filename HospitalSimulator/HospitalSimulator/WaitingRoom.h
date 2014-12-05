@@ -16,24 +16,16 @@ private:
 	double arrival_rate;
 	std::priority_queue<Patient *> serious_queue; 
 	std::priority_queue<Patient *> minor_queue;
-	int total_wait;  
-	int num_served;
 	vector<Patient *> town;
 
 public:
-	WaitingRoom(vector<Patient *> a) : total_wait(0), num_served(0), town(a){}
+	WaitingRoom(vector<Patient *> a) : town(a){}
 
 	void set_arrival_rate(double arrival_rate) {
 		this->arrival_rate = arrival_rate;
 	}
 
-	int get_total_wait() {
-		return total_wait;
-	}
 
-	int get_num_served() {
-		return num_served;
-	}
 
 	void update(int clock)
 	{
@@ -44,7 +36,7 @@ public:
 				select = rand() % town.size();
 			} while (town[select]->beingServed);
 			town[select]->beingServed = true;
-			town[select]->emergency_start = clock;
+			town[select]->arrival_time = clock;
 			int sev_perc, sev;
 			sev_perc = rand() % 10;
 			if (sev_perc < 7){
@@ -65,7 +57,7 @@ public:
 		}
 
 	}
-	friend class emergencyRoom;
+	friend class EmergencyRoom;
 };
 
 #endif
