@@ -5,6 +5,7 @@
 #include <string>
 #include "WaitingRoom.h"
 #include "EmergencyRoom.h"
+#include "Random.h"
 
 
 Random my_random;

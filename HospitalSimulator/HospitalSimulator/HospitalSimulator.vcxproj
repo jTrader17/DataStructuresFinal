@@ -79,6 +79,7 @@
     <ClInclude Include="EmergencyRoom.h" />
     <ClInclude Include="Patient.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="Residents.h" />
     <ClInclude Include="Simulator.h" />
     <ClInclude Include="WaitingRoom.h" />
   </ItemGroup>

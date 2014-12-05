@@ -2,7 +2,8 @@
 #define WAITINGROOM_H
 
 #include <queue>
-#include "Patient.h"
+#include "Random.h"
+#include "Residents.h"
 
 extern Random my_random;
 
@@ -13,9 +14,10 @@ private:
 	std::priority_queue<Patient *> the_queue; 
 	int total_wait;  
 	int num_served;
+	TownResidents town;
 
 public:
-	WaitingRoom() : total_wait(0), num_served(0) {}
+	WaitingRoom(TownResidents a) : total_wait(0), num_served(0), town(a){}
 
 	void set_arrival_rate(double arrival_rate) {
 		this->arrival_rate = arrival_rate;
@@ -31,14 +33,10 @@ public:
 
 	void update(int clock)
 	{
-		/* FIXME:  add a new plane into the landing queue based on the arrival_rate
-		HINT: my_random.next_double() returns a random value between 0 and 1.
-		Read how the the simulation described in the book does this
-		(section 6.5 pages. 392-393).
-		Look at the Passenger_Queue::check_new_arrival() method
-		*/
 		if (my_random.next_double() < arrival_rate){
-			the_queue.push(new Plane(clock));
+			Patient * p = town.getRandom();
+			p->emergency_start(clock);
+			the_queue.push(p);
 		}
 
 	}
@@ -46,6 +44,4 @@ public:
 	friend class ServiceQueue;
 };
 
-#endif
-};
 #endif
