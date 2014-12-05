@@ -6,6 +6,7 @@
 #include "WaitingRoom.h"
 #include "EmergencyRoom.h"
 #include "Random.h"
+#include <vector>
 
 
 Random my_random;
@@ -45,8 +46,8 @@ private:
 	}
 
 public:
-	Simulator(){
-		waiting = new WaitingRoom();
+	Simulator(vector<Patient *>  town ){
+		waiting = new WaitingRoom(town);
 		emergency = new EmergencyRoom();
 	}
 

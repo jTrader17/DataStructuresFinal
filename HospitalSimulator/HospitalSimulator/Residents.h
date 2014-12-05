@@ -27,10 +27,11 @@ public:
 		iofile.close();
 	}
 
-	&Patient getRandom(){
+	Patient * getRandom(){
 		srand(time(NULL));
+		int select;
 		do{
-			int select = rand() % the_town.size();
+			select = rand() % the_town.size();
 		} while (the_town[select]->beingServed);
 		the_town[select]->beingServed = true;
 		return the_town[select];
