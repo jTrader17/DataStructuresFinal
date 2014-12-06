@@ -48,16 +48,32 @@ private:
 public:
 	Simulator(vector<Patient *>  town ){
 		waiting = new WaitingRoom(town);
-		emergency = new EmergencyRoom();
+		emergency = new EmergencyRoom(-1, -1);
 	}
 
 	void enter_data(){
 		std::cout << "Welcome to CS273ville Hospital!\n";
-		int rate = read_int("Please enter arrival rate (planes/hour: ", 1, 60);
+		int rate = read_int("Please enter arrival rate (patients/hour): ", 1, 60);
 		double arrival_rate = rate / 60.0;
 
 		int num_doctors = read_int("Please enter number of doctors working: ", 1, 20);
+		emergency->setNumDocs(num_doctors);
 		int num_nurses = read_int("Please enter number of nurses working: ", 1, 20);
+		emergency->setNumNurse(num_nurses);
+		emergency->setWaitingRoom(waiting);
+	}
+	void run_simulation(){
+		for (clock = 0; clock < total_time; clock++){
+			waiting->update(clock);
+			emergency->update(clock);
+		}
+	}
+
+	void show_stats(){
+		std::cout << "Number of patients served: " << emergency->get_num_served() << endl;
+		std::cout << "Total time waited by patients (min): " << emergency->get_total_wait() << endl;
+		double average = 1.0*emergency->get_total_wait() / emergency->get_num_served();
+		std::cout << "Average time waited per patient (min): " << average << endl;
 	}
 };
 

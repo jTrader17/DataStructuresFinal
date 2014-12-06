@@ -39,6 +39,12 @@ public:
 		waiting = wait;
 	}
 
+	void setNumDocs(int num){
+		num_doctors = num;
+	}
+	void setNumNurse(int num){
+		num_nurses = num;
+	}
 	void update(int clock){
 		for (int i = 0; i < num_nurses; i++){
 			if (!nurse_queues[i]->empty()){
