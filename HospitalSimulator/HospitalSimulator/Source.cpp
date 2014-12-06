@@ -9,22 +9,20 @@
 using namespace std;
 
 int main(){
-	string fileName;
-	cout << "Please enter file name: ";
-	cin >> fileName;
+	string fileName = "residents_273ville.txt";
 	vector < Patient * >  the_town;
-	ifstream iofile(fileName);
-	if (iofile.is_open()){
-		string name;
-		while (getline(iofile, name))
+	fstream fs;
+	fs.open("residents_273ville.txt");
+	if (fs.is_open()){
+		string name ="start";
+		//while (getline(fs, name))
+		int i = 0;
+		while (!fs.eof())
 		{
-			int i = 0;
+			fs >> name;
 			the_town.push_back(new Patient(name));
-			cout << the_town[i] << endl;
-			i++;
 		}
-		iofile.close();
-		cout << the_town[0];
+		fs.close();
 		Simulator hospital(the_town);
 		hospital.enter_data();
 		hospital.run_simulation();

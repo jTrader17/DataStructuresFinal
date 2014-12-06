@@ -13,7 +13,7 @@ Random my_random;
 
 class Simulator {
 private:
-	int total_time = 24*60*7;
+	int total_time = 10;
 	int clock;
 
 	WaitingRoom *waiting;
@@ -46,7 +46,7 @@ private:
 	}
 
 public:
-	Simulator(vector<Patient *>  town ){
+	Simulator(std::vector<Patient *>  town ){
 		waiting = new WaitingRoom(town);
 		emergency = new EmergencyRoom(-1, -1);
 	}
@@ -55,7 +55,7 @@ public:
 		std::cout << "Welcome to CS273ville Hospital!\n";
 		int rate = read_int("Please enter arrival rate (patients/hour): ", 1, 60);
 		double arrival_rate = rate / 60.0;
-
+		waiting->set_arrival_rate(arrival_rate);
 		int num_doctors = read_int("Please enter number of doctors working: ", 1, 20);
 		emergency->setNumDocs(num_doctors);
 		int num_nurses = read_int("Please enter number of nurses working: ", 1, 20);
@@ -70,10 +70,10 @@ public:
 	}
 
 	void show_stats(){
-		std::cout << "Number of patients served: " << emergency->get_num_served() << endl;
-		std::cout << "Total time waited by patients (min): " << emergency->get_total_wait() << endl;
+		std::cout << "Number of patients served: " << emergency->get_num_served() << std::endl;
+		std::cout << "Total time waited by patients (min): " << emergency->get_total_wait() << std::endl;
 		double average = 1.0*emergency->get_total_wait() / emergency->get_num_served();
-		std::cout << "Average time waited per patient (min): " << average << endl;
+		std::cout << "Average time waited per patient (min): " << average << std::endl;
 	}
 };
 

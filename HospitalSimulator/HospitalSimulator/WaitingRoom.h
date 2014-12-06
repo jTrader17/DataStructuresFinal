@@ -3,7 +3,7 @@
 
 #include <queue>
 #include "Random.h"
-#include "Residents.h"
+#include <vector>
 #include "Patient.h"
 #include <cstdlib>
 #include <ctime>
@@ -16,10 +16,10 @@ private:
 	double arrival_rate;
 	std::priority_queue<Patient *> serious_queue; 
 	std::priority_queue<Patient *> minor_queue;
-	vector<Patient *> town;
+	std::vector<Patient *> town;
 
 public:
-	WaitingRoom(vector<Patient *> a) : town(a){}
+	WaitingRoom(std::vector<Patient *> a) : town(a){}
 
 	void set_arrival_rate(double arrival_rate) {
 		this->arrival_rate = arrival_rate;
@@ -29,7 +29,8 @@ public:
 
 	void update(int clock)
 	{
-		if (my_random.next_double() < arrival_rate){
+		double a = my_random.next_double();
+		if ( a < arrival_rate){
 			srand(time(NULL));
 			int select;
 			do{

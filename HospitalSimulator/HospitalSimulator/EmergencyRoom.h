@@ -21,12 +21,8 @@ public:
 		total_wait = 0;
 		num_doctors = dnum;
 		num_nurses = nnum;
-		for (int i = 0; i < num_doctors; i++){
-			doc_queues.push_back(new std::queue <Patient *>);
-		}
-		for (int i = 0; i < num_nurses; i++){
-			nurse_queues.push_back(new std::queue <Patient *>);
-		}
+		
+		
 	}
 	int get_total_wait() {
 		return total_wait;
@@ -41,9 +37,15 @@ public:
 
 	void setNumDocs(int num){
 		num_doctors = num;
+		for (int i = 0; i < num_doctors; i++){
+			doc_queues.push_back(new std::queue <Patient *>);
+		}
 	}
 	void setNumNurse(int num){
 		num_nurses = num;
+		for (int i = 0; i < num_nurses; i++){
+			nurse_queues.push_back(new std::queue <Patient *>);
+		}
 	}
 	void update(int clock){
 		for (int i = 0; i < num_nurses; i++){
@@ -93,7 +95,7 @@ public:
 					doc_queues[i]->push(pat);
 				}
 				else{
-					if (waiting->minor_queue.empty()){
+					if (!waiting->minor_queue.empty()){
 						Patient * pat = waiting->minor_queue.top();
 						waiting->minor_queue.pop();
 						pat->emergency_start = clock;
