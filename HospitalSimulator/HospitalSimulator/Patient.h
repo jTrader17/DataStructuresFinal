@@ -15,11 +15,8 @@ struct Patient{
 	Patient(std::string a) : name(a), beingServed(false), arrival_time(-1), 
 		emergency_start(-1), emergency_finish(-1), severity (-1),  timeToFix (-1){}
 
-	bool operator> (Patient * other){
-		if (this->severity > other->severity)
-			return true;
-		else
-			return false;
+	bool operator< (const Patient  &other) const{
+		return severity < other.severity;
 	}
 };
 

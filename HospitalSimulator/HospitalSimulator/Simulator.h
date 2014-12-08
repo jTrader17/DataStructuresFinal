@@ -13,7 +13,7 @@ Random my_random;
 
 class Simulator {
 private:
-	int total_time = 10;
+	int total_time = 10080;
 	int clock;
 
 	WaitingRoom *waiting;

@@ -52,7 +52,9 @@ public:
 			if (!nurse_queues[i]->empty()){
 				Patient * pat = nurse_queues[i]->front();
 				if ((clock - pat->emergency_start) > pat->timeToFix){
+					waiting->totalBeingServed--;
 					pat->emergency_finish = clock;
+					pat->beingServed = false;
 					int time;
 					time = clock - pat->arrival_time;
 					total_wait += time;
@@ -65,7 +67,9 @@ public:
 			if (!doc_queues[i]->empty()){
 				Patient * pat = doc_queues[i]->front();
 				if ((clock - pat->emergency_start) > pat->timeToFix){
+					waiting->totalBeingServed--;
 					pat->emergency_finish = clock;
+					pat->beingServed = false;
 					int time;
 					time = clock - pat->arrival_time;
 					total_wait += time;

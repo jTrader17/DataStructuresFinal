@@ -7,19 +7,24 @@
 #include "Patient.h"
 #include <cstdlib>
 #include <ctime>
+#include "Node_Comparison.h"
 
 extern Random my_random;
 
 
 class WaitingRoom{
 private:
+	int totalBeingServed;
 	double arrival_rate;
-	std::priority_queue<Patient *> serious_queue; 
-	std::priority_queue<Patient *> minor_queue;
+	Node_Comparison a;
+	std::priority_queue<Patient *, std::vector<Patient *>, Node_Comparison> serious_queue; 
+	std::priority_queue<Patient *, std::vector<Patient *>, Node_Comparison> minor_queue;
 	std::vector<Patient *> town;
 
 public:
-	WaitingRoom(std::vector<Patient *> a) : town(a){}
+	WaitingRoom(std::vector<Patient *> a) : town(a){
+		totalBeingServed = 0;
+	}
 
 	void set_arrival_rate(double arrival_rate) {
 		this->arrival_rate = arrival_rate;
@@ -30,7 +35,8 @@ public:
 	void update(int clock)
 	{
 		double a = my_random.next_double();
-		if ( a < arrival_rate){
+		if ( a < arrival_rate && totalBeingServed < 2000){
+			totalBeingServed++;
 			srand(time(NULL));
 			int select;
 			do{

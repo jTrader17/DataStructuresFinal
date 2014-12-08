@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include "Simulator.h"
+
 using namespace std;
 
 int main(){
