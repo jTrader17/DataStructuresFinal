@@ -36,6 +36,15 @@
     <ClInclude Include="Information.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MedicalPersonel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Nurse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Doctor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">

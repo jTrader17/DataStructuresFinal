@@ -1,9 +1,24 @@
-﻿Build started 12/8/2014 9:38:16 AM.
-     1>Project "C:\Users\jTrader17\Documents\GitHub\DataStructuresFinal\HospitalSimulator\HospitalSimulator\HospitalSimulator.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         HospitalSimulator.vcxproj -> C:\Users\jTrader17\Documents\GitHub\DataStructuresFinal\HospitalSimulator\Debug\HospitalSimulator.exe
-     1>Done Building Project "C:\Users\jTrader17\Documents\GitHub\DataStructuresFinal\HospitalSimulator\HospitalSimulator\HospitalSimulator.vcxproj" (Build target(s)).
+﻿Build started 12/8/2014 3:55:27 PM.
+     1>Project "J:\The Real Folders\Documents\GitHub\DataStructuresFinal\HospitalSimulator\HospitalSimulator\HospitalSimulator.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         J:\Developer\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\waitingroom.h(61): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\doctor.h(20): error C2027: use of undefined type 'EmergencyRoom'
+                 j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\waitingroom.h(88) : see declaration of 'EmergencyRoom'
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\doctor.h(20): error C2227: left of '->incTime' must point to class/struct/union/generic type
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\doctor.h(21): error C2027: use of undefined type 'EmergencyRoom'
+                 j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\waitingroom.h(88) : see declaration of 'EmergencyRoom'
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\doctor.h(21): error C2227: left of '->incNumServed' must point to class/struct/union/generic type
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\nurse.h(20): error C2027: use of undefined type 'EmergencyRoom'
+                 j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\waitingroom.h(88) : see declaration of 'EmergencyRoom'
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\nurse.h(20): error C2227: left of '->incTime' must point to class/struct/union/generic type
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\nurse.h(21): error C2027: use of undefined type 'EmergencyRoom'
+                 j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\waitingroom.h(88) : see declaration of 'EmergencyRoom'
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\nurse.h(21): error C2227: left of '->incNumServed' must point to class/struct/union/generic type
+     1>j:\the real folders\documents\github\datastructuresfinal\hospitalsimulator\hospitalsimulator\emergencyroom.h(56): warning C4018: '<' : signed/unsigned mismatch
+     1>Done Building Project "J:\The Real Folders\Documents\GitHub\DataStructuresFinal\HospitalSimulator\HospitalSimulator\HospitalSimulator.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:00.38

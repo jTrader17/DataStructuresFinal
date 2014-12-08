@@ -29,7 +29,29 @@ public:
 		this->arrival_rate = arrival_rate;
 	}
 
+	void decServed(){
+		totalBeingServed--;
+	}
 
+	bool minorEmpty(){
+		return minor_queue.empty();
+	}
+
+	bool seriousEmpty(){
+		return serious_queue.empty();
+	}
+
+	Patient * minorTop(){
+		Patient * pat = minor_queue.top();
+		minor_queue.pop();
+		return pat;
+	}
+
+	Patient * seriousTop(){
+		Patient * pat = serious_queue.top();
+		serious_queue.pop();
+		return pat;
+	}
 
 	void update(int clock)
 	{

@@ -76,9 +76,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Doctor.h" />
     <ClInclude Include="EmergencyRoom.h" />
     <ClInclude Include="Information.h" />
+    <ClInclude Include="MedicalPersonel.h" />
     <ClInclude Include="Node_Comparison.h" />
+    <ClInclude Include="Nurse.h" />
     <ClInclude Include="Patient.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Simulator.h" />

@@ -48,7 +48,7 @@ private:
 public:
 	Simulator(std::vector<Patient *>  town ){
 		waiting = new WaitingRoom(town);
-		emergency = new EmergencyRoom(-1, -1);
+		emergency = new EmergencyRoom();
 	}
 
 	void enter_data(){
@@ -56,10 +56,10 @@ public:
 		int rate = read_int("Please enter arrival rate (patients/hour): ", 1, 60);
 		double arrival_rate = rate / 60.0;
 		waiting->set_arrival_rate(arrival_rate);
-		int num_doctors = read_int("Please enter number of doctors working: ", 1, 20);
-		emergency->setNumDocs(num_doctors);
 		int num_nurses = read_int("Please enter number of nurses working: ", 1, 20);
 		emergency->setNumNurse(num_nurses);
+		int num_doctors = read_int("Please enter number of doctors working: ", 1, 20);
+		emergency->setNumDocs(num_doctors);
 		emergency->setWaitingRoom(waiting);
 	}
 	void run_simulation(){
