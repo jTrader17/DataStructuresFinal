@@ -16,7 +16,6 @@ class WaitingRoom{
 private:
 	int totalBeingServed;
 	double arrival_rate;
-	Node_Comparison a;
 	std::priority_queue<Patient *, std::vector<Patient *>, Node_Comparison> serious_queue; 
 	std::priority_queue<Patient *, std::vector<Patient *>, Node_Comparison> minor_queue;
 	std::vector<Patient *> town;

@@ -33,6 +33,9 @@
     <ClInclude Include="Node_Comparison.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Information.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">

@@ -77,6 +77,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="EmergencyRoom.h" />
+    <ClInclude Include="Information.h" />
     <ClInclude Include="Node_Comparison.h" />
     <ClInclude Include="Patient.h" />
     <ClInclude Include="Random.h" />
