@@ -75,6 +75,24 @@ public:
 		double average = 1.0*emergency->get_total_wait() / emergency->get_num_served();
 		std::cout << "Average time waited per patient (min): " << average << std::endl;
 	}
+
+	void post_simulation(){
+		int select = 0;
+		while (select != 3){
+			std::cout << "What would you like to do?\n";
+			std::cout << "1) See names of all those who were treated by the hospital\n";
+			std::cout << "2) See details of a certain patient\n";
+			std::cout << "3) Exit\n";
+			std::cin >> select;
+
+			if (select == 1){
+				emergency->seeAllNames();
+			}
+			if (select == 2){
+				emergency->seeInfo();
+			}
+		}
+	}
 };
 
 #endif

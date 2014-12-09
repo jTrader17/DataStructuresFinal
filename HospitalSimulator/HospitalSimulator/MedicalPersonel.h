@@ -4,12 +4,12 @@
 #include <queue>
 #include "Patient.h"
 #include "WaitingRoom.h"
-//#include "EmergencyRoom.h"
+#include "Information.h"
 class MedicalPersonel{
 protected:
 	std::queue <Patient *> currentServing;
 public:
-	virtual int servePatient(int clock, WaitingRoom * waiting) = 0;
+	virtual Information * servePatient(int clock, WaitingRoom * waiting) = 0;
 	virtual void takeNewPatient(int clock, WaitingRoom * waiting) = 0;
 };
 

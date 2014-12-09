@@ -28,6 +28,7 @@ int main(){
 		hospital.enter_data();
 		hospital.run_simulation();
 		hospital.show_stats();
+		hospital.post_simulation();
 	}
 	else
 		cout << "didnt open" << endl;
