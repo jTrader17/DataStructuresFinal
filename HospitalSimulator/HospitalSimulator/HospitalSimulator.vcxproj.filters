@@ -18,9 +18,6 @@
     <ClInclude Include="Simulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EmergencyRoom.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="WaitingRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -43,6 +40,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Doctor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmergencyRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

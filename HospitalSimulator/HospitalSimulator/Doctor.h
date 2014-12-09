@@ -2,13 +2,14 @@
 #define DOCTOR_H
 #include "MedicalPersonel.h"
 #include "WaitingRoom.h"
-#include "EmergencyRoom.h"
+//#include "EmergencyRoom.h"
 
 extern Random my_random;
 
 class Doctor : public MedicalPersonel{
 public:
-	void servePatient(int clock, WaitingRoom * waiting, EmergencyRoom * emergency){
+	Doctor(){};
+	int servePatient(int clock, WaitingRoom * waiting){
 		if (!currentServing.empty()){
 			Patient * pat = currentServing.front();
 			if ((clock - pat->emergency_start) > pat->timeToFix){
@@ -17,13 +18,12 @@ public:
 				pat->beingServed = false;
 				int time;
 				time = clock - pat->arrival_time;
-				emergency->incTime(time);
-				emergency->incNumServed();
 				currentServing.pop();
+				return time;
 			}
 		}
 	}
-	void takeNewPatient(int clock, WaitingRoom * waiting, EmergencyRoom * emergency){
+	void takeNewPatient(int clock, WaitingRoom * waiting){
 		if (currentServing.empty()){
 			if (!waiting->seriousEmpty()){
 				Patient * pat = waiting->seriousTop();

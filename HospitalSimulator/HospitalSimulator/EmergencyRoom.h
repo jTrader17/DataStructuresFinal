@@ -54,8 +54,12 @@ public:
 	}
 	void update(int clock){
 		for (int i = 0; i < staff.size(); i++){
-			staff[i]->servePatient(clock, waiting, this);
-			staff[i]->takeNewPatient(clock, waiting, this);
+			int time = staff[i]->servePatient(clock, waiting);
+			if (time != 0){
+				incTime(time);
+				num_served++;
+			}
+			staff[i]->takeNewPatient(clock, waiting);
 		}
 	}
 };
