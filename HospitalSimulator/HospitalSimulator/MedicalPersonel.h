@@ -9,6 +9,7 @@ class MedicalPersonel{
 protected:
 	std::queue <Patient *> currentServing;
 public:
+	//Both doctors and Nurses must have these functions
 	virtual Information * servePatient(int clock, WaitingRoom * waiting) = 0;
 	virtual void takeNewPatient(int clock, WaitingRoom * waiting) = 0;
 };

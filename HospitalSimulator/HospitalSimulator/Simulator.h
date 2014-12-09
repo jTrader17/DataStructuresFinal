@@ -53,11 +53,14 @@ public:
 
 	void enter_data(){
 		std::cout << "Welcome to CS273ville Hospital!\n";
+		//rate must be between 1-60
 		int rate = read_int("Please enter arrival rate (patients/hour): ", 1, 60);
 		double arrival_rate = rate / 60.0;
 		waiting->set_arrival_rate(arrival_rate);
+		//number of nurses must be between 1-20
 		int num_nurses = read_int("Please enter number of nurses working: ", 1, 20);
 		emergency->setNumNurse(num_nurses);
+		//number of doctors must be between 1-20
 		int num_doctors = read_int("Please enter number of doctors working: ", 1, 20);
 		emergency->setNumDocs(num_doctors);
 		emergency->setWaitingRoom(waiting);
@@ -73,10 +76,11 @@ public:
 		std::cout << "Number of patients served: " << emergency->get_num_served() << std::endl;
 		std::cout << "Total time waited by patients (min): " << emergency->get_total_wait() << std::endl;
 		double average = 1.0*emergency->get_total_wait() / emergency->get_num_served();
-		std::cout << "Average time waited per patient (min): " << average << std::endl;
+		std::cout << "Average visit time per patient (min): " << average << std::endl;
 	}
 
 	void post_simulation(){
+		//Post-simulation ui
 		int select = 0;
 		while (select != 3){
 			std::cout << "What would you like to do?\n";
