@@ -16,7 +16,6 @@ int main(){
 	fs.open("residents_273ville.txt");
 	if (fs.is_open()){
 		string name ="start";
-		//while (getline(fs, name))
 		int i = 0;
 		while (!fs.eof())
 		{
